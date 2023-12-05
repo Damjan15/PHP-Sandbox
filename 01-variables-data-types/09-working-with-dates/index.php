@@ -1,5 +1,40 @@
 <?php
 $output = null;
+
+// The year
+$output = date("Y");
+
+// Timestamp
+$output = date("Y", strtotime('1999-09-01'));
+
+// The month
+$output = date('m');
+
+// The day
+$output = date('d');
+
+// The day of the week
+$output = date('D');
+$output = date('l');
+
+// Year-Month-Day
+$output = date("Y-m-d");
+
+// The hour
+$output = date('h');
+
+// The minute
+$output = date('i');
+
+// The second
+$output = date('s');
+
+// The AM or PM
+$output = date('a');
+
+// The full date and time
+$output = date('Y-m-d h:i:s a');
+
 ?>
 
 <!DOCTYPE html>
