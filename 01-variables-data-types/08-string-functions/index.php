@@ -1,5 +1,30 @@
 <?php
 $output = null;
+$string = "Hello World";
+
+// strlen -> returns length of a string
+$output = strlen($string);
+
+// str_word_count -> returns the number of words in a string
+$output = str_word_count($string);
+
+// strpos -> finds the position of the first occurrence of a substring in a string
+$output = strpos($string, 'World');
+
+// substr -> returns a part of a string
+$output = substr($string, 6, 5);
+
+// str_replace -> replaces all occurrences of the search string with the replacement string
+$output = str_replace("World", "Universe", $string);
+
+// strtolower -> converts a string to lowercase
+$output = strtolower($string);
+
+// strtoupper -> converts a string to uppercase
+$output = strtoupper($string);
+
+// trim -> removes whitespace from the beginning and end of a string
+$output = trim('                Hello World       ');
 ?>
 
 <!DOCTYPE html>
