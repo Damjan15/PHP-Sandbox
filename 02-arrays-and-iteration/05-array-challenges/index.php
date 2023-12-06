@@ -9,6 +9,10 @@
   5. Print out 'The sum of the {amount} numbers is: {sum} '. For example, if the array is [1, 2, 3, 4, 5], the output should be 'The sum of the 5 numbers is: 15'. 
 */
 echo '<h3>Sum Of An Array</h3>';
+$numbers = [7, 8, 9, 10, 11];
+$sumOfNumbers = count($numbers);
+$resultOfNumbers = $numbers[0] + $numbers[1] + $numbers[2] + $numbers[3] + $numbers[4];
+echo "The sum of the {$sumOfNumbers} is: {$resultOfNumbers}";
 
 /*
   Challenge 2: Colors array
@@ -24,6 +28,22 @@ You should end up with the following array: ['yellow', 'pink', 'blue', 'red', 'p
 echo '<h3>Colors Array</h3>';
 
 $colors = ['red', 'blue', 'green', 'yellow'];
+// Reversing the array
+$colors = array_reverse($colors);
+
+// Adding two new colors at the end of the $colors array
+$lastColors = array("purple", "orange");
+$colors = array_merge($colors, $lastColors);
+
+// Add color 'pink' as the second color
+array_splice($colors, 1, 0, 'pink');
+
+// Remove the last color
+array_pop($colors);
+
+echo "<pre>";
+print_r($colors);
+echo "</pre>";
 
 /*
   Challenge 3: Job listings array
@@ -35,3 +55,27 @@ $colors = ['red', 'blue', 'green', 'yellow'];
 */
 
 echo '<h3>Job Listings</h3>';
+
+$jobListings = [
+  ['id' => 1, 'job_title' => 'Full-Stack Developer', 'company' => 'Wayne Inc', 'contact_email' => 'wayne@inc.com', 'contact_phone' => '1234-567-8999', 'skills' => ['PHP', 'MySQL', 'JavaScript']],
+
+  ['id' => 2, 'job_title' => 'Front-end Developer', 'company' => 'Shelby Enterprises', 'contact_email' => 'shelby_enterprises@gmail.com', 'contact_phone' => '333-289-3258', 'skills' => ['HTML', 'CSS', 'JavaScript']],
+
+  ['id' => 2, 'job_title' => 'React Developer', 'company' => 'Truth Night Club', 'contact_email' => 'truth@nightclub.com', 'contact_phone' => '8589-2467-4590', 'skills' => ['React.js', 'Next.js', 'Framer Motion']],
+];
+
+// Add a new listing
+array_push($jobListings, [
+  'id' => 4,
+  'job_title' => 'C# Developer',
+  'company' => '123 Company',
+  'contact_email' => 'kristen@email.com',
+  'contact_phone' => '123-456-7890',
+  'skills' => ['C#', 'Angular', 'JavaScript', 'HTML', 'CSS']
+]);
+
+// Job title of second job listing
+echo "<h3>{$jobListings[1]['job_title']}</h3>";
+
+// First skill of third job listing
+echo "<h3>{$jobListings[2]['skills'][0]}</h3>";
