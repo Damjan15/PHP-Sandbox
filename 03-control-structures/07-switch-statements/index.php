@@ -1,3 +1,40 @@
+<?php
+$dayOfTheWeek = date('l');
+
+switch ($dayOfTheWeek) {
+  case 'Monday':
+    $message = "Monday blues!";
+    $color = "blue";
+    break;
+  case "Tuesday":
+    $message = "At least it's not Monday!";
+    $color = "green";
+    break;
+  case "Wednesday":
+    $message = "Hump day!";
+    $color = "orange";
+    break;
+  case "Thursday":
+    $message = "One more day until Friday!";
+    $color = "red";
+    break;
+  case "Friday":
+    $message = "TGIF!";
+    $color = "purple";
+    break;
+  case "Satuday":
+    $message = "Have a nice weekend!";
+    $color = "yellow";
+    break;
+  case "Sunday":
+    $message = "Have a nice weekend!";
+    $color = "yellow";
+    break;
+  default:
+    $message = "Not a valid day.";
+    break;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,7 +59,7 @@
 </head>
 
 <body>
-  <h1>Monday blues!</h1>
+  <h1><?php echo strtoupper($message) ?></h1>
 </body>
 
 </html>
