@@ -1,4 +1,6 @@
 <?php
+$title = "Job Listings";
+
 $listings = [
   [
     'id' => 1,
@@ -51,20 +53,20 @@ $listings = [
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.tailwindcss.com"></script>
-  <title>Job Listings</title>
+  <title><?php echo $title; ?></title>
 </head>
 
 <body class="bg-gray-100">
   <header class="bg-blue-500 text-white p-4">
     <div class="container mx-auto">
-      <h1 class="text-3xl font-semibold">Job Listings</h1>
+      <h1 class="text-3xl font-semibold"><?php echo $title; ?></h1>
     </div>
   </header>
   <div class="container mx-auto p-4 mt-4">
     <!-- Output -->
-    <?php foreach ($listings as $job) : ?>
+    <?php foreach ($listings as $index => $job) : ?>
       <div class="md my-4">
-        <div class="bg-white rounded-lg shadow-md">
+        <div class="rounded-lg shadow-md <?php if ($index % 2 === 0) : ?> bg-blue-100 <?php else : ?> bg-white <?php endif; ?>">
           <div class="p-4">
             <h2 class="text-xl font-semibold"><?= $job['title'] ?></h2>
             <p class="text-gray-700 text-lg mt-2"><?= $job['description'] ?></p>
@@ -74,10 +76,15 @@ $listings = [
               </li>
               <li class="mb-2">
                 <strong>Location:</strong> <?= $job['location'] ?>
+                <?php if ($job['location'] === 'New York') : ?>
+                  <span class="text-xs text-white bg-blue-500 rounded-full px-2 py-1 ml-2">Local</span>
+                <?php endif; ?>
               </li>
-              <li class="mb-2">
-                <strong>Tags:</strong> <?= implode(', ', $job['tags']) ?>
-              </li>
+              <?php if (!empty($job['tags'])) : ?>
+                <li class="mb-2">
+                  <strong>Tags:</strong> <?= implode(', ', $job['tags']) ?>
+                </li>
+              <?php endif; ?>
             </ul>
           </div>
         </div>
