@@ -6,14 +6,29 @@
   The formula to convert Fahrenheit to Celsius is: Celsius = (Fahrenheit - 32) * 5/9
 */
 
+function fahrenheitToCelsius($temp)
+{
+  $celsiusTemp = ($temp - 32) * 5 / 9;
+
+  return "{$temp} = {$celsiusTemp}C";
+}
+echo fahrenheitToCelsius(80);
 echo '<br>';
 
 /*
   Challenge 2: Print names in uppercase
   Create a function called `printNamesToUpperCase` that takes an array of names as an argument. The function should loop through the array and print each name to the screen in uppercase letters.
 */
+function printNamesInUppercase($names)
+{
+  foreach ($names as $name) {
+    $uppercaseName = strtoupper($name);
+    echo $uppercaseName . "<br>";
+  }
+}
 
-
+$names = ['Alice', 'Bob', 'Charlie', 'David'];
+printNamesInUppercase($names);
 echo '<br>';
 
 /*
@@ -22,3 +37,28 @@ echo '<br>';
   2. The function should return the longest word in the sentence.
   3. The output should look like this:
 */
+function findLongestWord($sentence)
+{
+  // Split the sentence into an array of words
+  $words = explode(' ', $sentence);
+
+  // Initialize the longest word variable
+  $longestWord = "";
+
+  // Loop through the words array
+  foreach ($words as $word) {
+    // Trim the word to remove whitespace
+    $word = trim($word);
+
+    // Check if the current word is longer than the longest word
+    if (strlen($word) > strlen($longestWord) || $longestWord === "") {
+      $longestWord = $word;
+    }
+  }
+
+  return $longestWord;
+}
+
+$sentence = "The quick brown fox jumped over the lazy dog";
+$longestWord = findLongestWord($sentence);
+echo $longestWord;
