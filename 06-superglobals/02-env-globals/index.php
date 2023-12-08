@@ -1,3 +1,14 @@
+<?php
+
+// Setting Environment Variables
+putenv("DB_HOST=localhost");
+putenv("DB_USER=damjan");
+
+// Getting Environment Variables
+$host = getenv("DB_HOST");
+$user = getenv("DB_USER");
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,11 +25,10 @@
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 
       <div class="bg-gray-200 p-4 rounded-lg">
-        <strong class="block mb-2">DB Host:</strong>
-
+        <strong class="block mb-2">DB Host: <?php echo $host ?></strong>
       </div>
       <div class="bg-gray-200 p-4 rounded-lg">
-        <strong class="block mb-2">DB User:</strong>
+        <strong class="block mb-2">DB User: <?php echo $user ?></strong>
 
       </div>
 
