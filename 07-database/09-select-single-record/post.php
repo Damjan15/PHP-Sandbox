@@ -1,3 +1,28 @@
+<?php
+require_once 'database.php';
+
+$id = $_GET['id'] ?? null;
+
+if (!$id) {
+  header('Location: index.php');
+  exit;
+}
+
+// SELECT statement with placeholder for id
+$sql = 'SELECT * FROM posts WHERE id = :id';
+
+// Prepare the SELECT statement
+$stmt = $pdo->prepare($sql);
+
+// Params for prepared statement
+$params = ['id' => $id];
+
+// Execute the statement
+$stmt->execute($params);
+
+// Fetch the post from the database
+$post = $stmt->fetch();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,8 +43,8 @@
     <div class="md my-4">
       <div class="rounded-lg shadow-md">
         <div class="p-4">
-          <h2 class="text-xl font-semibold">Post One</h2>
-          <p class="text-gray-700 text-lg mt-2 mb-5">This is post one</p>
+          <h2 class="text-xl font-semibold"><?php echo $post['title']; ?></h2>
+          <p class="text-gray-700 text-lg mt-2 mb-5"><?php echo $post['body']; ?></p>
           <a href="index.php">Go Back</a>
         </div>
       </div>
