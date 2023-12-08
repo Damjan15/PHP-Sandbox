@@ -1,22 +1,22 @@
 <?php
 // Common server variables:
-$requestMethod = '';
-$serverProtocol = '';
-$serverName = '';
-$serverPort = '';
-$serverSoftware = '';
-$serverAdmin = '';
-$documentRoot = '';
-$scriptFilename = '';
-$scriptName = '';
-$phpSelf = '';
-$remoteAddr = '';
-$connection = '';
-$host = '';
-$referer = '';
-$userAgent = '';
-$queryString = '';
-$requestUri = '';
+$requestMethod = isset($_SERVER["REQUEST_METHOD"]) ? $_SERVER["REQUEST_METHOD"] : "";
+$serverProtocol = isset($_SERVER["SERVER_PROTOCOL"]) ? $_SERVER["SERVER_PROTOCOL"] : "";
+$serverName = isset($_SERVER["SERVER_NAME"]) ? $_SERVER["SERVER_NAME"] : "";
+$serverPort = isset($_SERVER["SERVER_PORT"]) ? $_SERVER["SERVER_PORT"] : "";
+$serverSoftware = isset($_SERVER["SERVER_SOFTWARE"]) ? $_SERVER["SERVER_SOFTWARE"] : "";
+$serverAdmin = isset($_SERVER["SERVER_ADMIN"]) ? $_SERVER["SERVER_ADMIN"] : "";
+$documentRoot = isset($_SERVER["DOCUMENT_ROOT"]) ? $_SERVER["DOCUMENT_ROOT"] : "";
+$scriptFilename = isset($_SERVER["SCRIPT_FILENAME"]) ? $_SERVER["SCRIPT_FILENAME"] : "";
+$scriptName = isset($_SERVER["SCRIPT_NAME"]) ? $_SERVER["SCRIPT_NAME"] : "";
+$phpSelf = isset($_SERVER["PHP_SELF"]) ? $_SERVER["PHP_SELF"] : "";
+$remoteAddr = isset($_SERVER["REMOTE_ADDR"]) ? $_SERVER["REMOTE_ADDR"] : "";
+$connection = isset($_SERVER["HTTP_CONNECTION"]) ? $_SERVER["HTTP_CONNECTION"] : "";
+$host = isset($_SERVER["HTTP_HOST"]) ? $_SERVER["HTTP_HOST"] : "";
+$referer = isset($_SERVER["HTTP_REFERER"]) ? $_SERVER["HTTP_REFERER"] : "";
+$userAgent = isset($_SERVER["HTTP_USER_AGENT"]) ? $_SERVER["HTTP_USER_AGENT"] : "";
+$queryString = isset($_SERVER["QUERY_STRING"]) ? $_SERVER["QUERY_STRING"] : "";
+$requestUri = isset($_SERVER["REQUEST_URI"]) ? $_SERVER["REQUEST_URI"] : "";
 
 ?>
 
