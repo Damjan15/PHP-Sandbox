@@ -1,3 +1,15 @@
+<?php
+require_once 'database.php';
+
+// Prepare a SELECT Statement
+$stmt = $pdo->prepare('SELECT * FROM posts');
+
+// Execute the statement
+$stmt->execute();
+
+// Fetch the results
+$results = $stmt->fetchAll();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,22 +27,16 @@
     </div>
   </header>
   <div class="container mx-auto p-4 mt-4">
-    <div class="md my-4">
-      <div class="rounded-lg shadow-md">
-        <div class="p-4">
-          <h2 class="text-xl font-semibold">Post One</h2>
-          <p class="text-gray-700 text-lg mt-2">This is post one</p>
+    <?php foreach ($results as $post) : ?>
+      <div class="md my-4">
+        <div class="rounded-lg shadow-md">
+          <div class="p-4">
+            <h2 class="text-xl font-semibold"><?php echo $post['title'] ?></h2>
+            <p class="text-gray-700 text-lg mt-2"><?php echo $post['body'] ?></p>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="md my-4">
-      <div class="rounded-lg shadow-md">
-        <div class="p-4">
-          <h2 class="text-xl font-semibold">Post Two</h2>
-          <p class="text-gray-700 text-lg mt-2">This is post two</p>
-        </div>
-      </div>
-    </div>
+    <?php endforeach; ?>
   </div>
 </body>
 
